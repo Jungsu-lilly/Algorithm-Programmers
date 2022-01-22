@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Programmers92334 {
+public class Programmers_92334 {
 
     public static int[] solution(String[] id_list, String[] report, int k) {
 
