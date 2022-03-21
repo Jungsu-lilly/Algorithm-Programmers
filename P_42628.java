@@ -39,19 +39,11 @@ public class P_42628 {
 
 
     public static void main(String[] args) {
-//        PriorityQueue<Integer> pq1 = new PriorityQueue<>( (o1,o2) -> {return o1 - o2;});
-//        pq1.offer(1);
-//        pq1.offer(4);
-//        pq1.offer(3);pq1.offer(2);
-//        while(!pq1.isEmpty()){
-//            Integer p = pq1.poll();
-//            System.out.print(p+"  ");
-//        }
 
         P_42628 p = new P_42628();
-        int[] ans2 = p.solution(new String[]{"I -45", "I 653", "D 1", "I -642", "I 45", "I 97", "D 1", "D -1", "I 333"});
+        int[] ans = p.solution(new String[]{"I -45", "I 653", "D 1", "I -642", "I 45", "I 97", "D 1", "D -1", "I 333"});
 
-        System.out.println("["+ans2[0]+", "+ans2[1]+"]");
+        System.out.println("["+ans[0]+", "+ans[1]+"]");
     }
 
 }
