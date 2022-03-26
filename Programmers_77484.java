@@ -44,16 +44,4 @@ public class Programmers_77484 {
         return tempAns;
     }
 
-
-    public static void main(String[] args) {
-        Programmers_77484 p = new Programmers_77484();
-        int[] lottos = {45, 4, 35, 20, 3, 9};
-        int[] win_nums = {20, 9, 3, 45, 4, 35};
-        int[] result = p.solution(lottos, win_nums);
-
-        for (int i : result) {
-            System.out.print(i+" ");
-        }
-    }
-
 }

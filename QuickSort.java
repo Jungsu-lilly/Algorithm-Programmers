@@ -31,7 +31,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        TestMain t = new TestMain();
+        QuickSort t = new QuickSort();
         int[] arr1 = {1,10,5,8,7,6,4,3,2,9};
         int[] arr2 = {2,4,6,8,10,5,7,9,1,3};
 

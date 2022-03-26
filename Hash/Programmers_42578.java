@@ -1,3 +1,5 @@
+package Hash;
+
 import java.util.*;
 public class Programmers_42578 {
 
@@ -9,6 +11,12 @@ public class Programmers_42578 {
             map.put(key, map.getOrDefault(key, 0)+1);
         }
         int answer = 1;
+        Collection<Integer> values = map.values();
+        for (Integer value : values) {
+            System.out.print(value+" ");
+        }
+        System.out.println();
+
         Iterator<Integer> iter = map.values().iterator();
 
         while(iter.hasNext()){
@@ -21,7 +29,7 @@ public class Programmers_42578 {
 
     public static void main(String[] args) {
         Programmers_42578 p = new Programmers_42578();
-        int answer1 = p.solution(new String[][]{{"yellowhat", "headgear"}, {"bluesunglasses", "eyewear"}, {"green_turban", "headgear"}});
+        int answer1 = p.solution(new String[][]{{"chikenHat", "headgear"}, {"yellowhat", "headgear"}, {"bluesunglasses", "eyewear"}, {"green_turban", "headgear"}});
         int answer2 = p.solution(new String[][]{{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}});
 
         System.out.println(answer1);

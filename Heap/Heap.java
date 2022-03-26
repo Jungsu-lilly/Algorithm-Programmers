@@ -1,3 +1,5 @@
+package Heap;
+
 public class Heap {
     public static void main(String[] args) {
         int heap[] = {7,6,5,8,3,5,9,1,6};
@@ -21,6 +23,8 @@ public class Heap {
             System.out.print(r + " ");
         }
         System.out.println();
+
+
         for(int i=NUM-1; i>=0; i--){
             int temp = heap[0];
             heap[0] = heap[i];

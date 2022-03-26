@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+package StackQueue;
+
 import java.util.*;
 public class P_42587 {
     public int solution(int[] priorities, int location) {

@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Stack;
+
 public class Programmers_64061 {
 
     public int solution(int[][] board, int[] moves) {

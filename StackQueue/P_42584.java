@@ -1,3 +1,5 @@
+package StackQueue;
+
 import java.util.Stack;
 
 public class P_42584 {
@@ -8,13 +10,12 @@ public class P_42584 {
         S.push(0);
 
         for(int i=1;i<len;i++){
-            int temp = prices[i];
-            while(!S.isEmpty() && prices[S.peek()] > temp){ // 감소되었다는 뜻
+            while(!S.isEmpty() && prices[S.peek()] > prices[i]){ // 가격이 감소함.
                 Integer peek = S.peek();
                 ans[peek] = i-peek;
                 S.pop();
             }
-            // S.peek() <= temp
+            // S.peek() <= prices[i]
             S.push(i);
         }
 

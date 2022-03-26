@@ -1,3 +1,5 @@
+package Heap;
+
 import java.util.*;
 
 public class P_42627 {
@@ -22,7 +24,7 @@ public class P_42627 {
                 pq.offer(jobs[jobIdx++]);
             }
 
-            if(pq.isEmpty()){ // ~end 까지의 요청이 없을 때 가장 최근 것으로 end 갱신
+            if(pq.isEmpty()){ // 디스크가 작업을 수행하고 있지 않을 때
                 end = jobs[jobIdx][0];
             }
             else{

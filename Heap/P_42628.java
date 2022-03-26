@@ -1,3 +1,5 @@
+package Heap;
+
 import java.util.*;
 public class P_42628 {
     public int[] solution(String[] operations) {
