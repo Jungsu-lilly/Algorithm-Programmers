@@ -1,27 +1,25 @@
 package 완전탐색;
-import java.util.*;
 
 public class P_42842 {  // 프로그래머스 - [카펫]
     public int[] solution(int brown, int yellow) {
-        int[] answer = new int[2];
-        ArrayList<int[]> list = new ArrayList<>();
-        list = findBrown(brown, list);
-        for (int[] arr : list) {
-            if(arr[0]*arr[1] == yellow){
-                answer[0] = arr[0]+2;
-                answer[1] = arr[1]+2;
+        int[] answer = new int[]{0,0};
+        int m=0,n=0; // n:세로, m:가로
+
+//        m+n = (brown+4)/2;
+//        m*n = yellow + brown;
+
+        for(int i=3;i<=(brown+4)/4;i++){ // n
+            for(int j=3;j<=(brown+4)/2-3;j++){ // m
+                if(i+j == (brown+4)/2 && i*j==yellow + brown){
+                    n=i; m=j;
+                }
             }
         }
-        return answer;
-    }
 
-    public ArrayList<int[]> findBrown(int brown, ArrayList<int[]> list){
-        int a,b=0;
-        int temp = brown/2 - 2;
-        for(int i=1;i<=temp/2;i++){
-            list.add(new int[]{temp-i, i});
-        }
-        return list;
+        answer[0] = m;
+        answer[1] = n;
+
+        return answer;
     }
 
     public static void main(String[] args) {
