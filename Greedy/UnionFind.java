@@ -33,7 +33,14 @@ public class UnionFind {
         unionParent(parent, 7, 8);
 
         System.out.println("1과 5는 연결되어 있나요? : "+findParent(parent, 1, 5));
-        unionParent(parent, 1, 5);
-        System.out.println("1과 5는 연결되어 있나요? : "+findParent(parent, 1, 5));
+        for(int i=1;i<=10;i++){
+            System.out.print(parent[i]+" ");
+        }
+        System.out.println();
+        unionParent(parent, 4, 7);
+        System.out.println("3과 7은 연결되어 있나요? : "+findParent(parent, 3, 7));
+        for(int i=1;i<=10;i++){
+            System.out.print(parent[i]+" ");
+        }
     }
 }
