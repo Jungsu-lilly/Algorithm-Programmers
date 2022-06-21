@@ -48,7 +48,6 @@ public class B_1707 {
 
         int year = 0;
         while(true){
-            System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
             year++;
             for(int i=1;i<N-1;i++){
                 for(int j=1;j<M-1;j++){
@@ -65,12 +64,6 @@ public class B_1707 {
                     }
                     if(count>=2) break;
                 }
-            }
-            for(int i=0;i<N;i++){
-                for(int j=0;j<M;j++){
-                    System.out.print(a[i][j]+" ");
-                }
-                System.out.println();
             }
             if(count>=2) break;
             if(count==0){

@@ -2,7 +2,7 @@ package Greedy;
 
 import java.util.Arrays;
 
-// 프로그래머스 - [체육복]
+// 체육복
 public class P_42862 {
     public int solution(int n, int[] lost, int[] reserve) {
         int answer=0;
