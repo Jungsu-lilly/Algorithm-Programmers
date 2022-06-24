@@ -1,65 +1,61 @@
 import java.util.*;
-class Solution {
+
+class Solution{
     public int[] solution(String[] genres, int[] plays) {
-        ArrayList<Integer> answer = new ArrayList<>();
-        // K: genre, V: [plays, ID]
-        HashMap<String, ArrayList<int[]>> genreMap = new HashMap<>();
-        // K: genre, V: totalPlays
-        HashMap<String, Integer> totalPlaysMap = new HashMap<>();
+        int k =0;
+        Map<String, ArrayList<int[]>> genreMap = new HashMap<>();
+        Map<String, Integer>total = new HashMap<>();
 
-        int size = genres.length;
+        int length = genres.length;
+        List<Integer> list = new ArrayList<>();
 
-        for(int i=0;i<size;i++){
+        for(int i=0;i<length;i++){
             ArrayList<int[]> temp = genreMap.getOrDefault(genres[i], new ArrayList<>());
-            temp.add(new int[]{plays[i],i});
-            genreMap.put(genres[i], temp);
-
-            totalPlaysMap.put(genres[i], totalPlaysMap.getOrDefault(genres[i], 0)+plays[i]);
+            temp.add(new int[]{i, plays[i]});
+            genreMap.put(genres[i],temp);
+            total.put(genres[i],total.getOrDefault(genres[i], 0)+plays[i]);
         }
 
-        // 총 재생 횟수가 많은 순서개로 내림차순 정렬
-        ArrayList<Map.Entry<String, Integer>> totalPlays = new ArrayList<>(totalPlaysMap.entrySet());
+        ArrayList<Map.Entry<String, Integer>> totalPlays = new ArrayList<>(total.entrySet());
         Collections.sort(totalPlays, new Comparator<Map.Entry<String, Integer>>() {
             @Override
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                // Value 내림차순
-                return o2.getValue()- o1.getValue();
+                return o2.getValue() - o1.getValue();
             }
         });
 
-        // 한 장르 내에서 재생된 노래가 많은 순서대로 내림차순 정렬
         for (Map.Entry<String, Integer> s : totalPlays) {
             String key = s.getKey();
             ArrayList<int[]> playList = genreMap.get(key);
+
             Collections.sort(playList, new Comparator<int[]>() {
                 @Override
                 public int compare(int[] o1, int[] o2) {
-                    // plays 내림차순 정렬
-                    return o2[0] - o1[0];
+                    return o2[1] - o1[1];
                 }
             });
 
-            for(int i=0; i<playList.size();i++){
-                if(i==2) break; // 최대 2개까지만 저장
-                answer.add(playList.get(i)[1]);
+            for(int i=0;i<playList.size();i++){
+                if(i==2) break;
+                list.add(playList.get(i)[0]);
             }
         }
-        final int SIZE = answer.size();
-        int[] arr = new int[SIZE];
-        for(int i=0; i<SIZE; i++){
-            arr[i] = answer.get(i);
-        }
 
-        return arr;
+        int[]ans = new int[list.size()];
+
+        // list -> array
+        for(int i=0;i<list.size();i++){
+            ans[i]=(int)list.get(i);
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
-        String genres[]= new String[]{"classic", "pop", "classic", "classic", "pop"};
-        int plays[] = new int[]{500, 600, 150, 800, 2500};
         Solution s = new Solution();
-        int[] answer = s.solution(genres, plays);
-        for (int i : answer) {
-            System.out.print(i+" ");
+        int[] ans = s.solution(new String[]{"classic", "pop", "classic", "classic", "pop"},
+                new int[]{500, 600, 150, 800, 2500});
+        for (int a : ans) {
+            System.out.print(a+", ");
         }
     }
 }
