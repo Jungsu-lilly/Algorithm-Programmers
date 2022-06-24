@@ -3,36 +3,25 @@ package Hash;
 import java.util.*;
 public class Programmers_42578 {
 
-    public int solution(String[][] clothes){
-        Map<String, Integer> map = new HashMap<>();
-
-        for (String[] clothe : clothes) {
-            String key = clothe[1];
-            map.put(key, map.getOrDefault(key, 0)+1);
-        }
+    public int solution(String[][] clothes) {
         int answer = 1;
-        Collection<Integer> values = map.values();
-        for (Integer value : values) {
-            System.out.print(value+" ");
+        Set<String> set = new HashSet<>();
+        Map<String, ArrayList<String>> map = new HashMap<>();
+        for (String[] s : clothes) {
+            ArrayList<String> temp = map.getOrDefault(s[1], new ArrayList<>());
+            temp.add(s[0]);
+            map.put(s[1], temp);
+            set.add(s[1]);
         }
-        System.out.println();
 
-        Iterator<Integer> iter = map.values().iterator();
-
-        while(iter.hasNext()){
-            int temp = iter.next().intValue();
-            answer *= temp+1;
+        for (String s : set) {
+            ArrayList<String> list = map.get(s);
+            answer *= list.size()+1;
         }
 
         return answer-1;
     }
 
     public static void main(String[] args) {
-        Programmers_42578 p = new Programmers_42578();
-        int answer1 = p.solution(new String[][]{{"chikenHat", "headgear"}, {"yellowhat", "headgear"}, {"bluesunglasses", "eyewear"}, {"green_turban", "headgear"}});
-        int answer2 = p.solution(new String[][]{{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}});
-
-        System.out.println(answer1);
-        System.out.println(answer2);
     }
 }
