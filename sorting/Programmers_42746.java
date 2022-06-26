@@ -1,26 +1,20 @@
 package sorting;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
+import java.util.*;
 
 public class Programmers_42746 {
 
     public String solution(int[] numbers) {
-        ArrayList<String> list = new ArrayList<>();
-        int numofZero = 0;
-        for (int number : numbers) {
-            if(number!=0){
-                String s = Integer.toString(number);
-                list.add(s);
-            }
-            else numofZero++;
+        String answer = "";
+        int numOfZero = 0;
+
+        List<String> list = new ArrayList<>();
+        for (int n : numbers) {
+            if(n!=0) list.add(Integer.toString(n));
+            numOfZero++;
         }
 
-        if(numofZero == numbers.length){
-            return "0";
-        }
+        if(numOfZero == numbers.length) return "0";
 
         Collections.sort(list, new Comparator<String>() {
             @Override
@@ -29,13 +23,11 @@ public class Programmers_42746 {
             }
         });
 
-        String answer = "";
-        for (String s : list) {
-            answer += s;
-        }
-        for(int i=0;i<numofZero;i++){
-            answer += "0";
-        }
+        for (String s : list)
+            answer+=s;
+
+        for(int i=0;i<numOfZero;i++)
+            answer+="0";
 
         return answer;
     }
