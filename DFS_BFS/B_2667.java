@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class B_2667 {
-    static int N = 0;
+    static int N , M= 0;
     static int[][]a = new int[25][25];
     static ArrayList<Integer> list = new ArrayList<>();
     static boolean visited[][] = new boolean[25][25];
