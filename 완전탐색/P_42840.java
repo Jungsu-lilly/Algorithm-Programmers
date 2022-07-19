@@ -32,6 +32,7 @@ public class P_42840 {
         });
 
         List<Integer> list = new ArrayList<>();
+
         int max = entries.get(0).getValue();  // 최대 점수
         list.add(entries.get(0).getKey());
         for(int i=1;i<entries.size();i++){

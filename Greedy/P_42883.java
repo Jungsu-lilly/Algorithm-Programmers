@@ -1,6 +1,6 @@
 package Greedy;
 import java.util.*;
-// 프로그래머스 - 큰 수 만들기
+// 큰 수 만들기
 public class P_42883 {
 
     public String solution(String number, int k) {

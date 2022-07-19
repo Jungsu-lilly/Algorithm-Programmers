@@ -13,7 +13,6 @@ public class Programmers_76501 {
             else
                 answer-=num;
         }
-
         return answer;
     }
 }
